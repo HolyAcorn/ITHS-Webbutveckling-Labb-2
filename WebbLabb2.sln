@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebbLabb2", "WebbLabb2\WebbLabb2.csproj", "{2CC7E786-87A8-45E1-84E3-205FF45AB53F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CC7E786-87A8-45E1-84E3-205FF45AB53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC7E786-87A8-45E1-84E3-205FF45AB53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC7E786-87A8-45E1-84E3-205FF45AB53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC7E786-87A8-45E1-84E3-205FF45AB53F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A938276-26A9-4E6F-A324-D36893BFD677}
+	EndGlobalSection
+EndGlobal
