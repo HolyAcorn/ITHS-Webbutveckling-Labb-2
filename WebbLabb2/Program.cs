@@ -17,7 +17,7 @@ namespace WebbLabb2
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            MongoCRUD db = new MongoCRUD("MyDB");
+            MongoCRUD db = new MongoCRUD("labb3Store_db");
 
             
             var app = builder.Build();
@@ -34,34 +34,34 @@ namespace WebbLabb2
             app.UseAuthorization();
 
 
-            app.MapGet("/api/authors", async () =>
+            app.MapGet("/api/products", async () =>
             {
-                var testDB = await db.GetAuthors();
+                var testDB = await db.GetProducts();
                 return Results.Ok(testDB);
             });
 
-            app.MapGet("/api/author", async (string id) =>
+            app.MapGet("/api/product", async (string id) =>
             {
-                var author = await db.GetAuthorById(id);
-                return Results.Ok(author);
+                var Product = await db.GetProductById(id);
+                return Results.Ok(Product);
             });
 
-            app.MapPost("/api/author", async (Author author) =>
+            app.MapPost("/api/product", async (Product Product) =>
             {
-                await db.AddAuthor(author);
-                return Results.Ok($"Author {author.FirstName} added");
+                await db.AddProduct(Product);
+                return Results.Ok($"Product {Product.ProductName} added");
             });
 
-            app.MapPut("/api/author", async (string id, Author author) =>
+            app.MapPut("/api/product", async (string id, Product Product) =>
             {
-                await db.UpdateAuthor(id, author);
-                return Results.Ok("Author updated");
+                await db.UpdateProduct(id, Product);
+                return Results.Ok("Product updated");
             });
             
-            app.MapDelete("api/author", async (string id) =>
+            app.MapDelete("api/product", async (string id) =>
             {
-                await db.RemoveAuthorById(id);
-                return Results.Ok("Author removed");
+                await db.RemoveProductById(id);
+                return Results.Ok("Product removed");
             });
             
             app.Run();

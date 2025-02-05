@@ -1,3 +1,4 @@
+using Azure.Identity;
 using Microsoft.AspNetCore.Http.HttpResults;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -12,42 +13,43 @@ public class MongoCRUD
 
     public MongoCRUD(string database)
     {
-        var client = new MongoClient();
+        var mongoConnection = Environment.GetEnvironmentVariable("productConnection");
+        var client = new MongoClient(mongoConnection);
         db = client.GetDatabase(database);
     }
 
-    public async Task<List<Author>> GetAuthors()
+    public async Task<List<Product>> GetProducts()
     {
-        var collection = db.GetCollection<Author>("Authors");
-        var authors = collection.AsQueryable().ToList();
-        return authors;
+        var collection = db.GetCollection<Product>("products");
+        var products = collection.AsQueryable().ToList();
+        return products;
     }
 
-    public async Task<Author> GetAuthorById(string id)
+    public async Task<Product> GetProductById(string id)
     {
-        var collection = db.GetCollection<Author>("Authors");
-        var author = await collection.AsQueryable().FirstOrDefaultAsync(x => x.Id == id);
-        return author;
+        var collection = db.GetCollection<Product>("products");
+        var product = await collection.AsQueryable().FirstOrDefaultAsync(x => x.Id == id);
+        return product;
     }
 
-    public async Task AddAuthor(Author author)
+    public async Task AddProduct(Product product)
     {
-        var collection = db.GetCollection<Author>("Authors");
-        await collection.InsertOneAsync(author);
+        var collection = db.GetCollection<Product>("products");
+        await collection.InsertOneAsync(product);
     }
 
-    public async Task RemoveAuthorById(string id)
+    public async Task RemoveProductById(string id)
     {
-        var collection = db.GetCollection<Author>("Authors");
-        var authors = collection.AsQueryable().ToList();
-        await collection.DeleteOneAsync(author => author.Id == id);
+        var collection = db.GetCollection<Product>("products");
+        var products = collection.AsQueryable().ToList();
+        await collection.DeleteOneAsync(product => product.Id == id);
     }
 
-    public async Task UpdateAuthor(string id, Author author)
+    public async Task UpdateProduct(string id, Product product)
     {
         
-        var collection = db.GetCollection<Author>("Authors");
-        await collection.ReplaceOneAsync(x => x.Id == id, author);
+        var collection = db.GetCollection<Product>("products");
+        await collection.ReplaceOneAsync(x => x.Id == id, product);
         
     }
 }

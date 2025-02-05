@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "3EEue0ls58R47JdCSmRRS6t4iHHqtjdPFCVloMA1m6Q=",
+  "Hash": "3so/xR5K1nnKill1IujhUWBx97LhHdD4CCk0mHn3Wc0=",
   "Source": "WebbLabb2",
   "BasePath": "_content/WebbLabb2",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }
